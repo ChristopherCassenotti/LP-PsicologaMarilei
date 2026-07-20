@@ -1,8 +1,9 @@
-import { Check, Sparkles } from "lucide-react";
+import { Check } from "lucide-react";
 
-import { Container } from "../components/layout/Container";
-import { Eyebrow } from "../components/ui/Eyebrow";
-import { traumaIndications } from "../data/content";
+import { Container } from "../../components/layout/Container";
+import { Eyebrow } from "../../components/ui/Eyebrow";
+import { Reveal, RevealGroup, RevealItem } from "../../components/ui/ScrollReveal";
+import { traumaIndications } from "../../data/content";
 
 export function TraumaSection() {
   return (
@@ -20,7 +21,7 @@ export function TraumaSection() {
       />
 
       <Container className="relative grid gap-14 lg:grid-cols-[.85fr_1.15fr] lg:items-start">
-        <div className="lg:sticky lg:top-32">
+        <Reveal className="lg:sticky lg:top-32">
           <Eyebrow light>Tratamento especializado em trauma e EMDR</Eyebrow>
 
           <h2
@@ -47,9 +48,14 @@ export function TraumaSection() {
               sofrimento emocional e para a recuperação da qualidade de vida.
             </p>
           </div>
-        </div>
+        </Reveal>
 
-        <div className="rounded-[2.5rem] border border-gold-400/20 bg-white/[0.07] p-6 backdrop-blur-sm sm:p-9">
+        <Reveal
+          className="rounded-[2.5rem] border border-gold-400/20 bg-white/[0.07] p-6 backdrop-blur-sm sm:p-9"
+          direction="left"
+          distance={34}
+          delay={0.08}
+        >
           <div className="mb-8 flex items-center gap-5">
             <div className="grid h-16 w-16 shrink-0 place-items-center rounded-full border-2 border-gold-400/40 text-gold-400">
               <svg
@@ -57,11 +63,11 @@ export function TraumaSection() {
                 width="32"
                 height="32"
                 fill="currentColor"
-                class="bi bi-clipboard-heart"
+                className="bi bi-clipboard-heart"
                 viewBox="0 0 16 16"
               >
                 <path
-                  fill-rule="evenodd"
+                  fillRule="evenodd"
                   d="M5 1.5A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5v1A1.5 1.5 0 0 1 9.5 4h-3A1.5 1.5 0 0 1 5 2.5zm5 0a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5z"
                 />
                 <path d="M3 1.5h1v1H3a1 1 0 0 0-1 1V14a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V3.5a1 1 0 0 0-1-1h-1v-1h1a2 2 0 0 1 2 2V14a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V3.5a2 2 0 0 1 2-2" />
@@ -78,9 +84,10 @@ export function TraumaSection() {
             </div>
           </div>
 
-          <ul className="grid gap-3 sm:grid-cols-2">
+          <RevealGroup as="ul" className="grid gap-3 sm:grid-cols-2" stagger={0.06}>
             {traumaIndications.map((item) => (
-              <li
+              <RevealItem
+                as="li"
                 key={item}
                 className="flex min-h-[86px] items-center gap-3 rounded-xl border border-white/10 bg-white/[0.07] p-4 text-ivory-100/90"
               >
@@ -91,10 +98,10 @@ export function TraumaSection() {
                   size={19}
                 />
                 <span className="text-base font-medium leading-6">{item}</span>
-              </li>
+              </RevealItem>
             ))}
-          </ul>
-        </div>
+          </RevealGroup>
+        </Reveal>
       </Container>
     </section>
   );

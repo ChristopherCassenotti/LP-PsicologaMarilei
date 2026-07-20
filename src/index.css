@@ -14,6 +14,7 @@ html {
 }
 
 body {
+  @apply font-sans;
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
@@ -38,6 +39,12 @@ button {
 
 main:focus {
   outline: none;
+}
+
+h1,
+h2,
+h3 {
+  @apply font-display;
 }
 
 :focus-visible {

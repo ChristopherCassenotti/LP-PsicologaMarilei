@@ -1,9 +1,10 @@
 import { Brain, Check } from "lucide-react";
 
-import { Container } from "../components/layout/Container";
-import { Button } from "../components/ui/Button";
-import { SectionHeading } from "../components/ui/SectionHeading";
-import { clinicalAssessmentItems } from "../data/content";
+import { Container } from "../../components/layout/Container";
+import { Button } from "../../components/ui/Button";
+import { Reveal, RevealGroup, RevealItem } from "../../components/ui/ScrollReveal";
+import { SectionHeading } from "../../components/ui/SectionHeading";
+import { clinicalAssessmentItems } from "../../data/content";
 
 export function ClinicalView() {
   return (
@@ -13,7 +14,7 @@ export function ClinicalView() {
       className="relative overflow-hidden bg-white py-24 lg:py-32"
     >
       <Container className="grid gap-16 lg:grid-cols-[1fr_.9fr] lg:items-center">
-        <div>
+        <Reveal>
           <SectionHeading
             id="como-trabalho-title"
             eyebrow="Um olhar clínico além dos sintomas"
@@ -42,9 +43,9 @@ export function ClinicalView() {
           <Button href="#atendimento" variant="secondary" className="mt-9">
             Conheça minha forma de trabalhar
           </Button>
-        </div>
+        </Reveal>
 
-        <div className="relative">
+        <Reveal className="relative" direction="left" distance={34} delay={0.08}>
           <div
             aria-hidden="true"
             className="absolute -inset-7 rounded-[3rem] border border-gold-500/15"
@@ -59,9 +60,10 @@ export function ClinicalView() {
               Compreender antes de intervir.
             </h3>
 
-            <ul className="mt-8 grid gap-4">
+            <RevealGroup as="ul" className="mt-8 grid gap-4" stagger={0.06}>
               {clinicalAssessmentItems.map((item) => (
-                <li
+                <RevealItem
+                  as="li"
                   key={item}
                   className="flex items-center gap-4 rounded-xl border border-olive-900/10 bg-white/85 p-4"
                 >
@@ -74,11 +76,11 @@ export function ClinicalView() {
                   <span className="text-md font-semibold leading-6 text-olive-900/85">
                     {item}
                   </span>
-                </li>
+                </RevealItem>
               ))}
-            </ul>
+            </RevealGroup>
           </div>
-        </div>
+        </Reveal>
       </Container>
     </section>
   );

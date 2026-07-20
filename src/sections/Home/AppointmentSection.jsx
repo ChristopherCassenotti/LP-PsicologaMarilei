@@ -8,16 +8,17 @@ import {
   Video,
 } from "lucide-react";
 
-import { Container } from "../components/layout/Container";
-import { Button } from "../components/ui/Button";
-import { SectionHeading } from "../components/ui/SectionHeading";
+import { Container } from "../../components/layout/Container";
+import { Button } from "../../components/ui/Button";
+import { Reveal, RevealGroup, RevealItem } from "../../components/ui/ScrollReveal";
+import { SectionHeading } from "../../components/ui/SectionHeading";
 import {
   appointmentInfo,
   appointmentSteps,
   whatsappMessages,
-} from "../data/content";
-import { createWhatsAppUrl } from "../utils/whatsapp";
-import { WhatsAppIcon } from "../components/icons/WhatsAppIcon";
+} from "../../data/content";
+import { createWhatsAppUrl } from "../../utils/whatsapp";
+import { WhatsAppIcon } from "../../components/icons/WhatsAppIcon";
 
 const appointmentIcons = {
   adult: UserRound,
@@ -36,7 +37,7 @@ export function AppointmentSection() {
     >
       <Container>
         <div className="grid gap-14 lg:grid-cols-[1fr_.92fr]">
-          <div>
+          <Reveal>
             <SectionHeading
               id="atendimento-title"
               eyebrow="Como funciona o atendimento"
@@ -48,9 +49,10 @@ export function AppointmentSection() {
               terapêutico individualizado.
             </p>
 
-            <ol className="mt-9 grid gap-4">
+            <RevealGroup as="ol" className="mt-9 grid gap-4" stagger={0.07}>
               {appointmentSteps.map((step) => (
-                <li
+                <RevealItem
+                  as="li"
                   key={step.number}
                   className="flex gap-5 rounded-2xl border border-olive-900/10 bg-ivory-100 p-5"
                 >
@@ -68,14 +70,18 @@ export function AppointmentSection() {
                       {step.text}
                     </p>
                   </div>
-                </li>
+                </RevealItem>
               ))}
-            </ol>
-          </div>
+            </RevealGroup>
+          </Reveal>
 
-          <aside
+          <Reveal
+            as="aside"
             aria-labelledby="consultas-title"
             className="rounded-[2.5rem] bg-olive-900 p-7 text-ivory-50 shadow-soft sm:p-10"
+            direction="left"
+            distance={34}
+            delay={0.08}
           >
             <div className="flex items-center gap-4">
               <div className="grid h-14 w-14 place-items-center rounded-2xl bg-white/10 text-gold-400">
@@ -94,12 +100,13 @@ export function AppointmentSection() {
               </div>
             </div>
 
-            <ul className="mt-8 grid gap-3">
+            <RevealGroup as="ul" className="mt-8 grid gap-3" stagger={0.06}>
               {appointmentInfo.map((item) => {
                 const Icon = appointmentIcons[item.type];
 
                 return (
-                  <li
+                  <RevealItem
+                    as="li"
                     key={item.text}
                     className="flex items-center gap-4 rounded-xl border border-white/10 bg-white/[0.07] p-4"
                   >
@@ -112,10 +119,10 @@ export function AppointmentSection() {
                     <span className="text-sm font-semibold leading-6 text-ivory-100/90">
                       {item.text}
                     </span>
-                  </li>
+                  </RevealItem>
                 );
               })}
-            </ul>
+            </RevealGroup>
 
             <Button
               href={createWhatsAppUrl(whatsappMessages.information)}
@@ -126,7 +133,7 @@ export function AppointmentSection() {
             >
               Saiba como funciona a consulta
             </Button>
-          </aside>
+          </Reveal>
         </div>
       </Container>
     </section>

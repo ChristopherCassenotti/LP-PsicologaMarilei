@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
-import { Menu, MessageCircle, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { WhatsAppIcon } from "../icons/WhatsAppIcon";
 
-import logoHorizontal from "../../assets/logo-horizontal.png";
+import logoHorizontal from "../../assets/logo-horizontal.webp";
 import { navItems, whatsappMessages } from "../../data/content";
 import { createWhatsAppUrl } from "../../utils/whatsapp";
 import { Button } from "../ui/Button";

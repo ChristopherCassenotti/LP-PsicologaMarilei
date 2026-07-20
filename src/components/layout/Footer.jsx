@@ -1,4 +1,4 @@
-import logoFull from "../../assets/logo-full.png";
+import logoFull from "../../assets/logo-full.webp";
 import { navItems, whatsappMessages } from "../../data/content";
 import { createWhatsAppUrl } from "../../utils/whatsapp";
 import { Container } from "./Container";

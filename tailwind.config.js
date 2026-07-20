@@ -26,8 +26,8 @@ export default {
         },
       },
       fontFamily: {
-        sans: ["Manrope", "sans-serif"],
-        display: ["Cormorant Garamond", "serif"],
+          sans: ["Manrope", "sans-serif"],
+          display: ["Cormorant Garamond", "serif"],
       },
       boxShadow: {
         soft: "0 20px 60px rgba(75, 52, 31, 0.10)",

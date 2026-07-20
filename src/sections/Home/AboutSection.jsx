@@ -1,8 +1,9 @@
-import marileiPhoto from "../assets/marilei-krauss.webp";
-import { Container } from "../components/layout/Container";
-import { Button } from "../components/ui/Button";
-import { SectionHeading } from "../components/ui/SectionHeading";
-import { professionalHighlights } from "../data/content";
+import marileiPhoto from "../../assets/marilei-krauss.webp";
+import { Container } from "../../components/layout/Container";
+import { Button } from "../../components/ui/Button";
+import { Reveal, RevealGroup, RevealItem } from "../../components/ui/ScrollReveal";
+import { SectionHeading } from "../../components/ui/SectionHeading";
+import { professionalHighlights } from "../../data/content";
 
 export function AboutSection() {
   return (
@@ -12,7 +13,7 @@ export function AboutSection() {
       className="overflow-hidden bg-ivory-100 py-24 lg:py-32"
     >
       <Container className="grid gap-16 lg:grid-cols-[.84fr_1.16fr] lg:items-center">
-        <div className="relative">
+        <Reveal className="relative" direction="right" distance={34}>
           <div
             aria-hidden="true"
             className="absolute -left-8 -top-8 h-40 w-40 rounded-full border-[28px] border-gold-500/10"
@@ -33,9 +34,9 @@ export function AboutSection() {
               Psicóloga clínica
             </p>
           </div>
-        </div>
+        </Reveal>
 
-        <div>
+        <Reveal direction="left" distance={30} delay={0.08}>
           <SectionHeading
             id="sobre-title"
             eyebrow="Sobre Marilei Krauss"
@@ -63,9 +64,13 @@ export function AboutSection() {
             </p>
           </div>
 
-          <dl className="mt-9 grid gap-3 sm:grid-cols-3">
+          <RevealGroup
+            as="dl"
+            className="mt-9 grid gap-3 sm:grid-cols-3"
+            stagger={0.06}
+          >
             {professionalHighlights.map((item) => (
-              <div
+              <RevealItem
                 key={item.value}
                 className="rounded-xl border border-olive-900/10 bg-white/80 p-4"
               >
@@ -75,14 +80,14 @@ export function AboutSection() {
                 <dd className="mt-1 text-sm font-semibold leading-5 text-olive-900/75">
                   {item.label}
                 </dd>
-              </div>
+              </RevealItem>
             ))}
-          </dl>
+          </RevealGroup>
 
           <Button href="#atendimento" variant="secondary" className="mt-9">
             Conheça minha trajetória
           </Button>
-        </div>
+        </Reveal>
       </Container>
     </section>
   );

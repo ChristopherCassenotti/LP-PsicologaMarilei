@@ -1,12 +1,13 @@
 import { MessageCircle } from "lucide-react";
 
-import { Container } from "../components/layout/Container";
-import { Button } from "../components/ui/Button";
-import { Eyebrow } from "../components/ui/Eyebrow";
-import { LeafDecoration } from "../components/ui/LeafDecoration";
-import { whatsappMessages } from "../data/content";
-import { createWhatsAppUrl } from "../utils/whatsapp";
-import { WhatsAppIcon } from "../components/icons/WhatsAppIcon";
+import { Container } from "../../components/layout/Container";
+import { Button } from "../../components/ui/Button";
+import { Eyebrow } from "../../components/ui/Eyebrow";
+import { LeafDecoration } from "../../components/ui/LeafDecoration";
+import { Reveal } from "../../components/ui/ScrollReveal";
+import { whatsappMessages } from "../../data/content";
+import { createWhatsAppUrl } from "../../utils/whatsapp";
+import { WhatsAppIcon } from "../../components/icons/WhatsAppIcon";
 
 export function FinalCta() {
   return (
@@ -19,7 +20,7 @@ export function FinalCta() {
       <LeafDecoration className="absolute -bottom-24 -right-12 h-[390px] w-[270px] -scale-x-100 text-white opacity-10" />
 
       <Container className="relative text-center">
-        <div className="mx-auto max-w-5xl">
+        <Reveal className="mx-auto max-w-5xl" scale={0.98}>
           <Eyebrow light centered>
             Chamada final
           </Eyebrow>
@@ -53,7 +54,7 @@ export function FinalCta() {
           >
             Agendar consulta pelo WhatsApp
           </Button>
-        </div>
+        </Reveal>
       </Container>
     </section>
   );

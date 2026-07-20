@@ -1,10 +1,10 @@
 export const navItems = [
-  { label: "Início", href: "#inicio" },
-  { label: "Sobre", href: "#sobre" },
-  { label: "Especialidades", href: "#especialidades" },
-  { label: "Como trabalho", href: "#como-trabalho" },
-  { label: "Agende sua consulta", href: "#atendimento" },
-  { label: "Contato", href: "#contato" },
+  { label: "Início", href: "/#inicio" },
+  { label: "Sobre", href: "/#sobre" },
+  { label: "Especialidades", href: "/#especialidades" },
+  { label: "Como trabalho", href: "/#como-trabalho" },
+  { label: "Agende sua consulta", href: "/#atendimento" },
+  { label: "EMDR", href: "emdr-infantil" },
 ];
 
 export const supportItems = [

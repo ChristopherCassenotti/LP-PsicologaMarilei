@@ -8,9 +8,10 @@ import {
   Users,
 } from "lucide-react";
 
-import { Container } from "../components/layout/Container";
-import { SectionHeading } from "../components/ui/SectionHeading";
-import { evidencePillars } from "../data/content";
+import { Container } from "../../components/layout/Container";
+import { Reveal, RevealGroup, RevealItem } from "../../components/ui/ScrollReveal";
+import { SectionHeading } from "../../components/ui/SectionHeading";
+import { evidencePillars } from "../../data/content";
 
 const pillarIcons = [BookOpen, Brain, UserRound, Heart, Users, Sparkles];
 
@@ -21,20 +22,27 @@ export function ScienceSection() {
       className="bg-white py-24 lg:py-32"
     >
       <Container>
-        <SectionHeading
+        <Reveal>
+          <SectionHeading
           id="science-title"
           eyebrow="Um tratamento fundamentado na ciência"
           title="Cada pessoa possui uma história única. Cada tratamento também deve ser."
           description="Um tratamento psicológico efetivo exige avaliação clínica cuidadosa, raciocínio diagnóstico e intervenções individualizadas."
           centered
-        />
+          />
+        </Reveal>
 
-        <ul className="relative mt-14 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        <RevealGroup
+          as="ul"
+          className="relative mt-14 grid gap-4 md:grid-cols-2 lg:grid-cols-3"
+          stagger={0.07}
+        >
           {evidencePillars.map((text, index) => {
             const Icon = pillarIcons[index];
 
             return (
-              <li
+              <RevealItem
+                as="li"
                 key={text}
                 className="relative overflow-hidden rounded-2xl border border-olive-900/10 bg-ivory-100 p-6"
               >
@@ -55,12 +63,16 @@ export function ScienceSection() {
                 <h3 className="mt-6 font-display text-3xl font-semibold text-olive-900">
                   {text}
                 </h3>
-              </li>
+              </RevealItem>
             );
           })}
-        </ul>
+        </RevealGroup>
 
-        <blockquote className="mx-auto mt-12 max-w-4xl rounded-[2rem] border border-gold-500/25 bg-gradient-to-br from-ivory-100 to-white p-8 text-center shadow-card sm:p-11">
+        <Reveal
+          as="blockquote"
+          className="mx-auto mt-12 max-w-4xl rounded-[2rem] border border-gold-500/25 bg-gradient-to-br from-ivory-100 to-white p-8 text-center shadow-card sm:p-11"
+          scale={0.98}
+        >
           <Quote
             aria-hidden="true"
             focusable="false"
@@ -72,7 +84,7 @@ export function ScienceSection() {
             Meu compromisso é oferecer um atendimento ético, humanizado,
             atualizado e tecnicamente qualificado.
           </p>
-        </blockquote>
+        </Reveal>
       </Container>
     </section>
   );
