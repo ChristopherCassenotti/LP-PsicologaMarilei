@@ -22,7 +22,7 @@ export function FinalCta() {
       <Container className="relative text-center">
         <Reveal className="mx-auto max-w-5xl" scale={0.98}>
           <Eyebrow light centered>
-            Chamada final
+            Entre em contato
           </Eyebrow>
 
           <h2
